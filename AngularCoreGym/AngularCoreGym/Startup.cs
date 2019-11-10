@@ -69,6 +69,7 @@ namespace AngularCoreGym
 
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddTransient<ISchemeMaster, SchemeMasterConcrete>();
+            services.AddTransient<IPropertyItem, PropertyItemConcrete>();
             services.AddTransient<IPlanMaster, PlanMasterConcrete>();
             services.AddTransient<IPeriodMaster, PeriodMasterConcrete>();
             services.AddTransient<IRole, RoleConcrete>();

@@ -18,16 +18,16 @@ export class PropertyItemService {
     username: any;
 
     constructor(private http: HttpClient) {
-        this.data = JSON.parse(localStorage.getItem('AdminUser'));
+        this.data = JSON.parse(localStorage.getItem('currentUser'));
         this.token = this.data.token;
         this.username = this.data.username
     }
 
     // Save PropertyItem
-    public SavePropertyItem(PropertyItemMasterModel: PropertyItemMasterModel) {
+    public SavePropertyItem(PropertyItem: PropertyItemMasterModel) {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
-        return this.http.post<any>(this.apiUrl, PropertyItemMasterModel, { headers: headers })
+        return this.http.post<any>(this.apiUrl, PropertyItem, { headers: headers })
             .pipe(
                 catchError(this.handleError)
             );

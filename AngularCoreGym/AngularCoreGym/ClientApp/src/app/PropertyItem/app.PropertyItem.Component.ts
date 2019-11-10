@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition, MatSnackBarConfig, MatSnackBar } from '@angular/material';
 
 @Component({
-    templateUrl: './app.PropertyItemMaster.html',
+    templateUrl: './app.PropertyItem.html',
     styleUrls: ['../Content/vendor/bootstrap/css/bootstrap.min.css']
 })
 
@@ -25,13 +25,11 @@ export class PropertyItemComponent {
 
 
     constructor(private _Route: Router,public snackBar: MatSnackBar,  private PropertyItemService: PropertyItemService) {
-        //this._PropertyItemService = PropertyItemService;
+        this._PropertyItemService = PropertyItemService;
     }
     output: any;
     onSubmit() {
-      
-
-        /*this._PropertyItemService.SavePropertyItem(this.PropertyItemForms).subscribe(
+        this._PropertyItemService.SavePropertyItem(this.PropertyItemForms).subscribe(
             response => 
             {
                
@@ -50,7 +48,7 @@ export class PropertyItemComponent {
                     config.duration = this.setAutoHide ? this.autoHide : 0;
                     config.verticalPosition = this.verticalPosition;
                     this.snackBar.open("Saved PropertyItem Successfully", this.action ? this.actionButtonLabel : undefined, config);
-                    this._Route.navigate(['/PropertyItem/All']);
+                    //this._Route.navigate(['/PropertyItem/All']);
                 }
                 else {
                     let config = new MatSnackBarConfig();
@@ -60,7 +58,7 @@ export class PropertyItemComponent {
                    
                 }
             }
-        );*/
+        );
 
 
 

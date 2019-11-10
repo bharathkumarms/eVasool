@@ -23,5 +23,8 @@ namespace AngularCoreGym.Concrete
         public DbSet<Users> Users { get; set; }
         public DbSet<UsersInRoles> UsersInRoles { get; set; }
         public DbSet<PaymentDetails> PaymentDetails { get; set; }
+
+        public DbSet<PropertyItem> PropertyItem { get; set; }
+
     }
 }
