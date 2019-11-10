@@ -24,14 +24,15 @@ namespace AngularCoreGym.Controllers
         {
             _propertyItem = propertyItem;
         }
-        /*
+        
         // GET: api/Scheme
         [HttpGet]
-        public List<SchemeMaster> Get()
+        public List<PropertyItem> Get()
         {
-            return _schemeMaster.GetSchemeMasterList();
+            return _propertyItem.GetPropertyItemList();
         }
 
+        /*
         // GET: api/Scheme/5
         [HttpGet("{id}", Name = "GetScheme")]
         public SchemeMaster Get(int id)

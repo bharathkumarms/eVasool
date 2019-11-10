@@ -19,15 +19,15 @@ namespace AngularCoreGym.Concrete
             _context = context;
             _configuration = config;
         }
-        /*
-        public List<SchemeMaster> GetSchemeMasterList()
+        
+        public List<PropertyItem> GetPropertyItemList()
         {
-            var result = (from scheme in _context.SchemeMaster
-                          select scheme).ToList();
+            var result = (from propertyItem in _context.PropertyItem
+                          select propertyItem).ToList();
 
             return result;
         }
-
+        /*
         public SchemeMaster GetSchemeMasterbyId(int schemeId)
         {
             var result = (from scheme in _context.SchemeMaster

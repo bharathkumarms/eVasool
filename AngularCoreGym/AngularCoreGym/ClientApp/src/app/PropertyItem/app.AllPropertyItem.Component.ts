@@ -17,7 +17,7 @@ export class AllPropertyItemComponent implements OnInit {
   errorMessage: any;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = ['PropertyItemID', 'PropertyItemName', 'Status', 'Createddate', 'EditAction', 'DeleteAction'];
+    displayedColumns: string[] = ['PropertyItemId', 'Name', 'LeaseDueDate', 'NextDueDate', 'EditAction', 'DeleteAction'];
   dataSource: any;
   
   
@@ -33,7 +33,7 @@ export class AllPropertyItemComponent implements OnInit {
 
 
     this._PropertyItemService.GetAllPropertyItem().subscribe(
-      AllPropertyItem => {
+        AllPropertyItem => {
         this.AllPropertyItemList = AllPropertyItem
         this.dataSource = new MatTableDataSource(this.AllPropertyItemList);
         this.dataSource.sort = this.sort;

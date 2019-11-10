@@ -10,7 +10,8 @@ namespace AngularCoreGym.Interface
     public interface IPropertyItem
     {
         bool AddPropertyItem(PropertyItem propertyItem);
-        /*List<SchemeMaster> GetSchemeMasterList();
+        List<PropertyItem> GetPropertyItemList();
+        /*
         SchemeMaster GetSchemeMasterbyId(int schemeId);
         bool CheckSchemeNameExists(string schemeName);
         bool UpdateSchemeMaster(SchemeMaster schemeMaster);

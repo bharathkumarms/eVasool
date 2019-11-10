@@ -48,7 +48,7 @@ export class PropertyItemComponent {
                     config.duration = this.setAutoHide ? this.autoHide : 0;
                     config.verticalPosition = this.verticalPosition;
                     this.snackBar.open("Saved PropertyItem Successfully", this.action ? this.actionButtonLabel : undefined, config);
-                    //this._Route.navigate(['/PropertyItem/All']);
+                    this._Route.navigate(['/PropertyItem/All']);
                 }
                 else {
                     let config = new MatSnackBarConfig();

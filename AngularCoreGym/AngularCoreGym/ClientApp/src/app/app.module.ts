@@ -15,7 +15,7 @@ import { SchemeComponent } from './SchemeMasters/app.Scheme.Component';
 import { AllSchemeComponent } from './SchemeMasters/app.AllScheme.Component';
 import { EditSchemeComponent } from './SchemeMasters/app.EditScheme.Component';
 import { PropertyItemComponent } from './PropertyItem/app.PropertyItem.Component';
-//import { AllPropertyItemComponent } from './PropertyItem/app.AllPropertyItem.Component';
+import { AllPropertyItemComponent } from './PropertyItem/app.AllPropertyItem.Component';
 import { EditPropertyItemComponent } from './PropertyItem/app.EditPropertyItem.Component';
 import { PlanMasterComponent } from './PlanMaster/app.planmaster.component';
 import { AllPlanMasterComponent } from './PlanMaster/app.allplanmaster.component';
@@ -61,7 +61,7 @@ import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Componen
     AllSchemeComponent,
     EditSchemeComponent,
     PropertyItemComponent,
-    //AllPropertyItemComponent,
+    AllPropertyItemComponent,
     EditPropertyItemComponent,
     PlanMasterComponent,
     AllPlanMasterComponent,
@@ -122,7 +122,8 @@ import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Componen
           path: 'PropertyItem',
           component: AppUserLayoutComponent,
           children: [
-              { path: 'Add', component: PropertyItemComponent, canActivate: [UserAuthGuardService] }
+              { path: 'Add', component: PropertyItemComponent, canActivate: [UserAuthGuardService] },
+              { path: 'All', component: AllPropertyItemComponent, canActivate: [UserAuthGuardService] }
           ]
       },
       {
