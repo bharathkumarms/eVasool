@@ -76,15 +76,15 @@ namespace AngularCoreGym.Concrete
                 return false;
             }
         }
-        /*
-        public bool DeleteScheme(int schemeId)
+        
+        public bool DeletePropertyItem(int propertyItemId)
         {
-            var schememaster = (from scheme in _context.SchemeMaster
-                                where scheme.SchemeID == schemeId
-                                select scheme).FirstOrDefault();
-            if (schememaster != null)
+            var propertyitem = (from propertyItem in _context.PropertyItem
+                                where propertyItem.PropertyItemId == propertyItemId
+                                select propertyItem).FirstOrDefault();
+            if (propertyitem != null)
             {
-                _context.SchemeMaster.Remove(schememaster);
+                _context.PropertyItem.Remove(propertyitem);
                 var result = _context.SaveChanges();
 
                 if (result > 0)
@@ -101,7 +101,7 @@ namespace AngularCoreGym.Concrete
                 return false;
             }
         }
-
+        /*
         public List<SchemeMaster> GetActiveSchemeMasterList()
         {
             var result = (from scheme in _context.SchemeMaster

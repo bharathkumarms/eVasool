@@ -96,12 +96,12 @@ namespace AngularCoreGym.Controllers
                 return response;
             }
         }
-        /*
+        
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public HttpResponseMessage Delete(int id)
         {
-            var result = _schemeMaster.DeleteScheme(id);
+            var result = _propertyItem.DeletePropertyItem(id);
 
             if (result)
             {
@@ -120,6 +120,6 @@ namespace AngularCoreGym.Controllers
                 return response;
             }
         }
-        */
+        
     }
 }

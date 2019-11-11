@@ -15,8 +15,9 @@ namespace AngularCoreGym.Interface
         PropertyItem GetPropertyItembyId(int schemeId);
         
         bool UpdatePropertyItem(PropertyItem propertyItem);
+        bool DeletePropertyItem(int propertyItemId);
         /*
-        bool DeleteScheme(int schemeId);
+        
         bool CheckSchemeNameExists(string schemeName);
 
         List<SchemeMaster> GetActiveSchemeMasterList();*/
