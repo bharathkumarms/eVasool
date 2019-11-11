@@ -32,14 +32,14 @@ namespace AngularCoreGym.Controllers
             return _propertyItem.GetPropertyItemList();
         }
 
-        /*
+        
         // GET: api/Scheme/5
-        [HttpGet("{id}", Name = "GetScheme")]
-        public SchemeMaster Get(int id)
+        [HttpGet("{id}", Name = "GetPropertyItem")]
+        public PropertyItem Get(int id)
         {
-            return _schemeMaster.GetSchemeMasterbyId(id);
+            return _propertyItem.GetPropertyItembyId(id);
         }
-        */
+        
         // POST: api/Scheme
         [HttpPost]
         public HttpResponseMessage Post([FromBody] PropertyItem propertyItem)
@@ -72,12 +72,12 @@ namespace AngularCoreGym.Controllers
                 return response;
             }
         }
-        /*
+        
         // PUT: api/Scheme/5
         [HttpPut("{id}")]
-        public HttpResponseMessage Put(int id, [FromBody] SchemeMasterEditViewModel schemeMaster)
+        public HttpResponseMessage Put(int id, [FromBody] PropertyItem propertyItem)
         {
-            if (string.IsNullOrWhiteSpace(Convert.ToString(id)) || schemeMaster == null)
+            if (string.IsNullOrWhiteSpace(Convert.ToString(id)) || propertyItem == null)
             {
                 var response = new HttpResponseMessage()
                 {
@@ -87,8 +87,7 @@ namespace AngularCoreGym.Controllers
             }
             else
             {
-                var temp = AutoMapper.Mapper.Map<SchemeMaster>(schemeMaster);
-                var result = _schemeMaster.UpdateSchemeMaster(temp);
+                var result = _propertyItem.UpdatePropertyItem(propertyItem);
 
                 var response = new HttpResponseMessage()
                 {
@@ -97,7 +96,7 @@ namespace AngularCoreGym.Controllers
                 return response;
             }
         }
-
+        /*
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public HttpResponseMessage Delete(int id)

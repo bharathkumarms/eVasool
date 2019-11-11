@@ -7,24 +7,109 @@
     <div class="panel-heading">Edit</div>
     <div class="panel-body">
         <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
-            <input type="hidden" name="PropertyItemID" [(ngModel)]="PropertyItemForms.PropertyItemID" id="PropertyItemID">
+            <input type="hidden" name="PropertyItemId" [(ngModel)]="PropertyItemForms.PropertyItemId" id="PropertyItemID">
             <div class="row">
-                <div class="col-md-3">
-                    <label for="name">PropertyItemName</label>
-                    <input type="text" [disabled]="true" class="form-control" name="PropertyItemName" [(ngModel)]="PropertyItemForms.PropertyItemName"
-                        maxlength="50" #refPropertyItemName="ngModel" id="PropertyItemName" required>
-                    <div *ngIf="!refPropertyItemName.valid  && (refPropertyItemName.dirty || refPropertyItemName.touched)" class="alert alert-danger">
-                        <div [hidden]="!refPropertyItemName.errors.required">
-                            PropertyItemName is required
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <label for="name">Status</label>
-                    <br>
-                    <input style="margin-top: 10px" type="checkbox" name="Status" [(ngModel)]="PropertyItemForms.Status"
-                        maxlength="50" #refStatus="ngModel" id="PropertyItemName">
-                </div>
+              <div class="col-md-3">
+                <label for="PropertyItemId">PropertyItemId</label>
+                <input disabled type="text" class="form-control" name="PropertyItemId" [(ngModel)]="PropertyItemForms.PropertyItemId"
+                       maxlength="50" #refPropertyItemID="ngModel" id="PropertyItemId" required>
+              </div>
+              <div class="col-md-3">
+                <label for="Name">Name</label>
+                <input disabled type="text" class="form-control" name="Name" [(ngModel)]="PropertyItemForms.Name"
+                       maxlength="50" #refName="ngModel" id="Name" required>
+              </div>
+              <div class="col-md-3">
+                <label for="Description">Description</label>
+                <input type="text" class="form-control" name="Description" [(ngModel)]="PropertyItemForms.Description"
+                       maxlength="50" id="Description">
+              </div>
+              <div class="col-md-3">
+                <label for="Area">Area</label>
+                <input type="text" class="form-control" name="Area" [(ngModel)]="PropertyItemForms.Area"
+                       maxlength="50" id="Area">
+              </div>
+              <div class="col-md-3">
+                <label for="AddressLine1">AddressLine1</label>
+                <input type="text" class="form-control" name="AddressLine1" [(ngModel)]="PropertyItemForms.AddressLine1"
+                       maxlength="50" id="AddressLine1">
+              </div>
+              <div class="col-md-3">
+                <label for="AddressLine2">AddressLine2</label>
+                <input type="text" class="form-control" name="AddressLine2" [(ngModel)]="PropertyItemForms.AddressLine2"
+                       maxlength="50" id="AddressLine2">
+              </div>
+              <div class="col-md-3">
+                <label for="City">City</label>
+                <input type="text" class="form-control" name="City" [(ngModel)]="PropertyItemForms.City"
+                       maxlength="50" id="City">
+              </div>
+              <div class="col-md-3">
+                <label for="Country">Country</label>
+                <input type="text" class="form-control" name="Country" [(ngModel)]="PropertyItemForms.Country"
+                       maxlength="50" id="Country">
+              </div>
+              <div class="col-md-3">
+                <label for="Zip">Zip</label>
+                <input type="text" class="form-control" name="Zip" [(ngModel)]="PropertyItemForms.Zip"
+                       maxlength="50" id="Zip">
+              </div>
+
+              <div class="col-md-3">
+                <label for="LeaseDueDate">LeaseDueDate</label>
+                <input [(ngModel)]="PropertyItemForms.LeaseDueDate" name="LeaseDueDate" id="LeaseDueDate" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+                       class="form-control" #refLeaseDueDate="bsDatepicker" bsDatepicker>
+              </div>
+
+              <div class="col-md-3">
+                <label for="NextDueDate">NextDueDate</label>
+                <input [(ngModel)]="PropertyItemForms.NextDueDate" name="NextDueDate" id="NextDueDate" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+                       class="form-control" #refNextDueDate="bsDatepicker" bsDatepicker>
+              </div>
+
+              <div class="col-md-3">
+                <label for="TotalLeaseAmount">TotalLeaseAmount</label>
+                <input type="text" class="form-control" (keypress)="numberOnly($event)" name="TotalLeaseAmount" [(ngModel)]="PropertyItemForms.TotalLeaseAmount" maxlength="50"
+                       #refTotalLeaseAmount="ngModel" id="TotalLeaseAmount">
+              </div>
+
+              <div class="col-md-3">
+                <label for="InstallmentAmount">InstallmentAmount</label>
+                <input type="text" class="form-control" (keypress)="numberOnly($event)" name="InstallmentAmount" [(ngModel)]="PropertyItemForms.InstallmentAmount" maxlength="50"
+                       #refInstallmentAmount="ngModel" id="InstallmentAmount">
+              </div>
+
+              <div class="col-md-3">
+                <label for="InstallementPaid">InstallementPaid</label>
+                <input type="text" class="form-control" (keypress)="numberOnly($event)" name="InstallementPaid" [(ngModel)]="PropertyItemForms.InstallementPaid" maxlength="50"
+                       #refInstallementPaid="ngModel" id="InstallementPaid">
+              </div>
+
+              <div class="col-md-3">
+                <label for="Notes">Notes</label>
+                <input type="text" class="form-control" name="Notes" [(ngModel)]="PropertyItemForms.Notes"
+                       maxlength="50" id="Notes">
+              </div>
+
+              <div class="col-md-3">
+                <label for="Phone">Phone</label>
+                <input type="text" class="form-control" name="Phone" [(ngModel)]="PropertyItemForms.Phone"
+                       maxlength="50" id="Phone">
+              </div>
+
+              <div class="col-md-3">
+                <label for="Email">Email</label>
+                <input type="text" class="form-control" name="Email" [(ngModel)]="PropertyItemForms.Email"
+                       maxlength="50" id="Email">
+              </div>
+
+              <div class="col-md-3">
+                <label for="name">IsActive</label>
+                <br>
+                <input style="margin-top: 10px" type="checkbox" name="IsActive" [(ngModel)]="PropertyItemForms.IsActive"
+                       maxlength="50" #refStatus="ngModel" id="IsActive">
+              </div>
+
             </div>
             <div class="row">
                 <div class="col-md-3">

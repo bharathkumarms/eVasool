@@ -123,6 +123,7 @@ import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Componen
           component: AppUserLayoutComponent,
           children: [
               { path: 'Add', component: PropertyItemComponent, canActivate: [UserAuthGuardService] },
+              { path: 'Edit/:propertyItemId', component: EditPropertyItemComponent, canActivate: [UserAuthGuardService] },
               { path: 'All', component: AllPropertyItemComponent, canActivate: [UserAuthGuardService] }
           ]
       },

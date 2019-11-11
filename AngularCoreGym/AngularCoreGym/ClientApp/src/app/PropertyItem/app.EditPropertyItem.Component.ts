@@ -17,23 +17,23 @@ export class EditPropertyItemComponent implements OnInit {
     errorMessage: any;
 
     constructor(private _Route: Router,private _routeParams: ActivatedRoute, private PropertyItemService: PropertyItemService) {
-        //this._PropertyItemService = PropertyItemService;
+        this._PropertyItemService = PropertyItemService;
     }
 
     ngOnInit() 
     {
-        /*this.PropertyItemID = this._routeParams.snapshot.params['PropertyItemId'];
+        this.PropertyItemID = this._routeParams.snapshot.params['propertyItemId'];
         if (this.PropertyItemID != null) 
         {
             var data = this._PropertyItemService.GetPropertyItemById(this.PropertyItemID).subscribe(
                 PropertyItem => {
-                    this.PropertyItemForms.PropertyItemID = PropertyItem.ID;
-                    this.PropertyItemForms.Name = PropertyItem.Name;
-                    this.PropertyItemForms.IsActive = PropertyItem.IsActive;
+                    this.PropertyItemForms = PropertyItem;
+                    //this.PropertyItemForms.Name = PropertyItem.Name;
+                    //this.PropertyItemForms.IsActive = PropertyItem.IsActive;
                 },
                 error => this.errorMessage = <any>error
             );
-        }*/
+        }
     }
 
 

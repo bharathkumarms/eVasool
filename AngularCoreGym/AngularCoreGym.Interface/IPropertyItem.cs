@@ -11,11 +11,13 @@ namespace AngularCoreGym.Interface
     {
         bool AddPropertyItem(PropertyItem propertyItem);
         List<PropertyItem> GetPropertyItemList();
+
+        PropertyItem GetPropertyItembyId(int schemeId);
+        
+        bool UpdatePropertyItem(PropertyItem propertyItem);
         /*
-        SchemeMaster GetSchemeMasterbyId(int schemeId);
-        bool CheckSchemeNameExists(string schemeName);
-        bool UpdateSchemeMaster(SchemeMaster schemeMaster);
         bool DeleteScheme(int schemeId);
+        bool CheckSchemeNameExists(string schemeName);
 
         List<SchemeMaster> GetActiveSchemeMasterList();*/
     }

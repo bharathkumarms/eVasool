@@ -1,5 +1,5 @@
 export class PropertyItemMasterModel {
-    public PropertyItemID: number = 0;
+    public PropertyItemId: number = 0;
     public Name: string = "";
     public Description: string = "";
     public Area: string = "";

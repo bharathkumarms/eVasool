@@ -65,7 +65,7 @@ export class PropertyItemService {
 
     // Update PropertyItem
     public UpdatePropertyItem(PropertyItemMasterModel: PropertyItemMasterModel) {
-        var putUrl = this.apiUrl + '/' + PropertyItemMasterModel.PropertyItemID;
+        var putUrl = this.apiUrl + '/' + PropertyItemMasterModel.PropertyItemId;
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.put<any>(putUrl, PropertyItemMasterModel, { headers: headers })

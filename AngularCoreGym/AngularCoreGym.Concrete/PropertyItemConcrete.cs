@@ -27,16 +27,16 @@ namespace AngularCoreGym.Concrete
 
             return result;
         }
-        /*
-        public SchemeMaster GetSchemeMasterbyId(int schemeId)
+        
+        public PropertyItem GetPropertyItembyId(int propertyItemId)
         {
-            var result = (from scheme in _context.SchemeMaster
-                          where scheme.SchemeID == schemeId
-                          select scheme).FirstOrDefault();
+            var result = (from propertyItem in _context.PropertyItem
+                          where propertyItem.PropertyItemId == propertyItemId
+                          select propertyItem).FirstOrDefault();
 
             return result;
         }
-
+        /*
         public bool CheckSchemeNameExists(string schemeName)
         {
             var result = (from scheme in _context.SchemeMaster
@@ -61,10 +61,11 @@ namespace AngularCoreGym.Concrete
                 return false;
             }
         }
-        /*
-        public bool UpdateSchemeMaster(SchemeMaster schemeMaster)
+        
+        public bool UpdatePropertyItem(PropertyItem propertyItem)
         {
-            _context.Entry(schemeMaster).Property(x => x.Status).IsModified = true;
+            var entity = GetPropertyItembyId(propertyItem.PropertyItemId);
+            _context.Entry(entity).CurrentValues.SetValues(propertyItem);
             var result = _context.SaveChanges();
             if (result > 0)
             {
@@ -75,7 +76,7 @@ namespace AngularCoreGym.Concrete
                 return false;
             }
         }
-
+        /*
         public bool DeleteScheme(int schemeId)
         {
             var schememaster = (from scheme in _context.SchemeMaster
