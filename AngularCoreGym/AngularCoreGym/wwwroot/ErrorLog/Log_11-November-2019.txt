@@ -25,3 +25,165 @@ StackTrace ---
 TargetSite ---
 {0}AutoMapper.IMapper get_Instance()
 
+
+11/11/2019 1:15:45 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- RegisterMember
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}Mapper not initialized. Call Initialize with appropriate configuration. If you are trying to use mapper instances through a container or otherwise, make sure you do not have any calls to the static Mapper.Map methods, and if you're using ProjectTo or UseAsDataSource extension methods, make sure you pass in the appropriate IConfigurationProvider instance.
+Source ---
+{0}AutoMapper
+StackTrace ---
+{0}   at AutoMapper.Mapper.get_Instance() in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 36
+   at AutoMapper.Mapper.Map[TDestination](Object source) in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 76
+   at AngularCoreGym.Controllers.RegisterMemberController.Post(MemberRegistrationViewModel member) in C:\eVasool\AngularCoreGym\AngularCoreGym\Controllers\RegisterMemberController.cs:line 76
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}AutoMapper.IMapper get_Instance()
+
+
+11/11/2019 2:15:40 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- RegisterMember
+Action Method Name :- Get
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}Sequence contains no elements
+Source ---
+{0}System.Linq
+StackTrace ---
+{0}   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at AngularCoreGym.Concrete.MemberRegistrationConcrete.GetMemberbyId(Int32 memberId) in C:\eVasool\AngularCoreGym\AngularCoreGym.Concrete\MemberRegistrationConcrete.cs:line 91
+   at AngularCoreGym.Controllers.RegisterMemberController.Get(Int32 id) in C:\eVasool\AngularCoreGym\AngularCoreGym\Controllers\RegisterMemberController.cs:line 62
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}TSource Single[TSource](System.Collections.Generic.IEnumerable`1[TSource])
+
+
+11/11/2019 2:36:16 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- RegisterMember
+Action Method Name :- Get
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}Sequence contains no elements
+Source ---
+{0}System.Linq
+StackTrace ---
+{0}   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at AngularCoreGym.Concrete.MemberRegistrationConcrete.GetMemberbyId(Int32 memberId) in C:\eVasool\AngularCoreGym\AngularCoreGym.Concrete\MemberRegistrationConcrete.cs:line 91
+   at AngularCoreGym.Controllers.RegisterMemberController.Get(Int32 id) in C:\eVasool\AngularCoreGym\AngularCoreGym\Controllers\RegisterMemberController.cs:line 62
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}TSource Single[TSource](System.Collections.Generic.IEnumerable`1[TSource])
+
+
+11/11/2019 2:36:29 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- RegisterMember
+Action Method Name :- Get
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}Sequence contains no elements
+Source ---
+{0}System.Linq
+StackTrace ---
+{0}   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at AngularCoreGym.Concrete.MemberRegistrationConcrete.GetMemberbyId(Int32 memberId) in C:\eVasool\AngularCoreGym\AngularCoreGym.Concrete\MemberRegistrationConcrete.cs:line 91
+   at AngularCoreGym.Controllers.RegisterMemberController.Get(Int32 id) in C:\eVasool\AngularCoreGym\AngularCoreGym\Controllers\RegisterMemberController.cs:line 62
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}TSource Single[TSource](System.Collections.Generic.IEnumerable`1[TSource])
+
+
+11/11/2019 2:40:10 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- RegisterMember
+Action Method Name :- Get
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}Sequence contains no elements
+Source ---
+{0}System.Linq
+StackTrace ---
+{0}   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at AngularCoreGym.Concrete.MemberRegistrationConcrete.GetMemberbyId(Int32 memberId) in C:\eVasool\AngularCoreGym\AngularCoreGym.Concrete\MemberRegistrationConcrete.cs:line 91
+   at AngularCoreGym.Controllers.RegisterMemberController.Get(Int32 id) in C:\eVasool\AngularCoreGym\AngularCoreGym\Controllers\RegisterMemberController.cs:line 62
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}TSource Single[TSource](System.Collections.Generic.IEnumerable`1[TSource])
+
+
+11/11/2019 2:48:23 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- RegisterMember
+Action Method Name :- Get
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}Sequence contains no elements
+Source ---
+{0}System.Linq
+StackTrace ---
+{0}   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at AngularCoreGym.Concrete.MemberRegistrationConcrete.GetMemberbyId(Int32 memberId) in C:\eVasool\AngularCoreGym\AngularCoreGym.Concrete\MemberRegistrationConcrete.cs:line 91
+   at AngularCoreGym.Controllers.RegisterMemberController.Get(Int32 id) in C:\eVasool\AngularCoreGym\AngularCoreGym\Controllers\RegisterMemberController.cs:line 62
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}TSource Single[TSource](System.Collections.Generic.IEnumerable`1[TSource])
+

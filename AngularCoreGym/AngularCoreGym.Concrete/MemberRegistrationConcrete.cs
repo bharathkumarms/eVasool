@@ -164,7 +164,7 @@ namespace AngularCoreGym.Concrete
                 con.Open();
                 var sqlTransaction = con.BeginTransaction();
                 var para = new DynamicParameters();
-                para.Add("@MemberId", memberRegistration.MemberId);
+                para.Add("@MemberId", memberRegistration.MainMemberId);
                 para.Add("@MemberFName", memberRegistration.MemberFName);
                 para.Add("@MemberLName", memberRegistration.MemberLName);
                 para.Add("@MemberMName", memberRegistration.MemberMName);
@@ -193,16 +193,12 @@ namespace AngularCoreGym.Concrete
         {
             IQueryable<MemberRegistrationGridModel> allItems = (from member in _context.MemberRegistration
                                                                 where member.Createdby == userId
-                                                                join plan in _context.PlanMaster on member.PlanID equals plan.PlanID
-                                                                join scheme in _context.SchemeMaster on member.SchemeID equals scheme.SchemeID
                                                                 select new MemberRegistrationGridModel()
                                                                 {
 
-                                                                    MemberName = member.MemberFName + '|' + member.MemberMName + '|' + member.MemberLName,
+                                                                    MemberName = member.MemberFName + " " + member.MemberLName,
                                                                     MemberNo = member.MemberNo,
                                                                     JoiningDate = member.JoiningDate,
-                                                                    SchemeName = scheme.SchemeName,
-                                                                    PlanName = plan.PlanName,
                                                                     MemberId = member.MemberId,
                                                                     Contactno = member.Contactno,
                                                                     EmailId = member.EmailId

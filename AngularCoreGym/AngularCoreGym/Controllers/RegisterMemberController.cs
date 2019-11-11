@@ -62,6 +62,30 @@ namespace AngularCoreGym.Controllers
             return _memberRegistration.GetMemberbyId(id);
         }
 
+        private MemberRegistration MapMembers(MemberRegistrationViewModel member)
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.Name);
+
+            var memberObj = new MemberRegistration();
+            memberObj.Address = member.Address;
+            memberObj.Age = member.Age;
+            memberObj.Contactno = member.Contactno;
+            memberObj.Createdby = Convert.ToInt32(userId);
+            memberObj.Dob = member.Dob;
+            memberObj.EmailId = member.EmailId;
+            memberObj.Gender = member.Gender.ToString();
+            memberObj.JoiningDate = member.JoiningDate;
+            memberObj.MainMemberId = member.MemberId;
+            memberObj.MemberFName = member.MemberFName;
+            memberObj.MemberLName = member.MemberLName;
+            memberObj.MemberMName = member.MemberMName;
+            //memberObj.MemberNo = member.MemberId;
+            //memberObj.PlanID
+            //memberObj.SchemeID
+            return memberObj;
+
+        }
+
         // POST: api/RegisterMember
         [HttpPost]
         public HttpResponseMessage Post([FromBody] MemberRegistrationViewModel member)
@@ -72,10 +96,11 @@ namespace AngularCoreGym.Controllers
                 {
                     if (!_memberRegistration.CheckNameExits(member.MemberFName, member.MemberLName, member.MemberMName))
                     {
-                        var userId = this.User.FindFirstValue(ClaimTypes.Name);
-                        var automember = AutoMapper.Mapper.Map<MemberRegistration>(member);
-                        automember.JoiningDate = DateTime.Now;
-                        automember.Createdby = Convert.ToInt32(userId);
+                        //var userId = this.User.FindFirstValue(ClaimTypes.Name);
+                        //var automember = AutoMapper.Mapper.Map<MemberRegistration>(member);
+                        var automember = MapMembers(member);
+                        //automember.JoiningDate = DateTime.Now;
+                        //automember.Createdby = Convert.ToInt32(userId);
 
                         var result = _memberRegistration.InsertMember(automember);
                         if (result > 0)
@@ -131,8 +156,8 @@ namespace AngularCoreGym.Controllers
                         member.MemberMName);
                 if (storedMemberid == member.MemberId || storedMemberid == 0)
                 {
-                    var automember = AutoMapper.Mapper.Map<MemberRegistration>(member);
-                    automember.JoiningDate = DateTime.Now;
+                    var automember = MapMembers(member);
+                    //automember.JoiningDate = DateTime.Now;
                     
                     var result = _memberRegistration.UpdateMember(automember);
                     if (result > 0)

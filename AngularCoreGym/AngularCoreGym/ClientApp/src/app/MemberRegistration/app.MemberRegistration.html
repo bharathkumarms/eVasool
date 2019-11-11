@@ -28,24 +28,13 @@
             <div class="col-md-4">
                 <label for="name">Middle Name</label>
                 <input type="text" class="form-control" name="MemberMName" [(ngModel)]="MemberModel.MemberMName"
-                    maxlength="50" #refMemberMName="ngModel" id="MemberMName" required>
-                <div *ngIf="!refMemberMName.valid  && (refMemberMName.dirty || refMemberMName.touched)" class="alert alert-danger">
-                    <div [hidden]="!refMemberMName.errors.required">
-                        Middle Name is required
-                    </div>
-                </div>
+                    maxlength="50" #refMemberMName="ngModel" id="MemberMName">
             </div>
 
             <div class="col-md-4">
                 <label for="name">JoiningDate</label>
                 <input [(ngModel)]="MemberModel.JoiningDate" name="JoiningDate" id="JoiningDate" onkeypress="return false;" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
                     class="form-control" #refJoiningDate="bsDatepicker" [minDate]="joinminDate" [maxDate]="joinmaxDate" bsDatepicker>
-
-                <div *ngIf="!refJoiningDate.valid  && (refJoiningDate.dirty || refJoiningDate.touched)" class="alert alert-danger">
-                    <div [hidden]="!refJoiningDate.errors.required">
-                        Joining Date is required
-                    </div>
-                </div>
             </div>
 
 
@@ -53,49 +42,28 @@
                 <label for="name">Date of Birth</label>
                 <input [(ngModel)]="MemberModel.Dob" name="Dob" id="Dob" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" onkeypress="return false;"
                     (bsValueChange)="CalcuateAge($event)" [maxDate]="dobminDate" class="form-control" #refDob="bsDatepicker" bsDatepicker>
-
-                <div *ngIf="!refDob.valid  && (refDob.dirty || refDob.touched)" class="alert alert-danger">
-                    <div [hidden]="!refDob.errors.required">
-                        Date of Birth is required
-                    </div>
-                </div>
             </div>
 
             <div class="col-md-4">
                 <label for="name">Age</label>
                 <input type="text" class="form-control" name="Age" [disabled]="true" [(ngModel)]="MemberModel.Age" maxlength="50" #refAge="ngModel"
-                    id="Age" required>
-                <div *ngIf="!refAge.valid  && (refAge.dirty || refAge.touched)" class="alert alert-danger">
-                    <div [hidden]="!refAge.errors.required">
-                        Age is required
-                    </div>
-                </div>
+                    id="Age">
             </div>
             <div class="col-md-4">
                 <label for="name">EmailId</label>
                 <input type="text" class="form-control"  name="EmailId" [(ngModel)]="MemberModel.EmailId" maxlength="50"
-                    #refEmailId="ngModel" id="EmailId" required>
-                <div *ngIf="!refEmailId.valid  && (refEmailId.dirty || refEmailId.touched)" class="alert alert-danger">
-                    <div [hidden]="!refEmailId.errors.required">
-                        EmailId is required
-                    </div>
-                </div>
+                    #refEmailId="ngModel" id="EmailId">
             </div>
             <div class="col-md-4">
                 <label for="name">Gender</label>
-                <select required name="Gender" #refgender="ngModel" class="form-control" [(ngModel)]="MemberModel.Gender">
+                <select name="Gender" #refgender="ngModel" class="form-control" [(ngModel)]="MemberModel.Gender">
                     <option value=''>Please select Gender</option>
                     <option *ngFor="let gender of genderList" [ngValue]="gender.id">
                         {{gender.name}}
                     </option>
                 </select>
-                <div *ngIf="!refgender.valid  && (refgender.dirty || refgender.touched)" class="alert alert-danger">
-                    <div [hidden]="!refgender.errors.required">
-                        Gender is required
-                    </div>
-                </div>
             </div>
-            <div class="col-md-4">
+            <!--<div class="col-md-4">
                 <label>Scheme</label>
                 <select required name="SchemeID" #refSchemeID="ngModel" (ngModelChange)="OnChange($event)" class="form-control"
                     [(ngModel)]="MemberModel.SchemeID">
@@ -109,8 +77,8 @@
                         Scheme is required
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
+            </div>-->
+            <!--<div class="col-md-4">
                 <label>PlanName</label>
                 <select required name="PlanID" #refPlanID="ngModel" class="form-control" (ngModelChange)="GetAmount(refPlanID.value,refSchemeID.value)"
                     [(ngModel)]="MemberModel.PlanID">
@@ -124,28 +92,18 @@
                         Plan is required
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="col-md-4">
                 <label for="name">Contactno</label>
                 <input type="text" class="form-control" name="Contactno" [(ngModel)]="MemberModel.Contactno" maxlength="10"
-                    #refContactno="ngModel" id="Contactno" required>
-                <div *ngIf="!refContactno.valid  && (refContactno.dirty || refContactno.touched)" class="alert alert-danger">
-                    <div [hidden]="!refContactno.errors.required">
-                        Contactno is required
-                    </div>
-                </div>
+                    #refContactno="ngModel" id="Contactno">
             </div>
             <div class="col-md-4">
                 <label for="name">Address</label>
                 <input type="text" class="form-control" name="Address" [(ngModel)]="MemberModel.Address" maxlength="50"
-                    #refAddress="ngModel" id="Address" required>
-                <div *ngIf="!refAddress.valid  && (refAddress.dirty || refAddress.touched)" class="alert alert-danger">
-                    <div [hidden]="!refAddress.errors.required">
-                        Address is required
-                    </div>
-                </div>
+                    #refAddress="ngModel" id="Address">
             </div>
-            <div class="col-md-4">
+            <!--<div class="col-md-4">
                 <label for="name">Amount</label>
                 <input type="text" [disabled]="true" class="form-control" name="Amount" [(ngModel)]="MemberModel.Amount" maxlength="50"
                     #refAmount="ngModel" id="Amount" required>
@@ -154,7 +112,7 @@
                         Amount is required
                     </div>
                 </div>
-            </div>
+            </div>-->
 
             <div class="col-md-4">
                 <button type="submit" style="margin-top: 10px" [disabled]="!f.form.valid" class="btn btn-success">Submit</button>

@@ -26,7 +26,7 @@ export class AllMemberRegistration implements OnInit {
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
-    displayedColumns: string[] = ['MemberId', 'MemberNo', 'MemberName', 'Contactno','PlanName', 'SchemeName', 'JoiningDate', 'EditAction', 'DeleteAction'];
+    displayedColumns: string[] = ['MemberId', 'MemberName', 'Contactno', 'JoiningDate', 'EditAction', 'DeleteAction'];
     dataSource = new MatTableDataSource<MemberRegistrationGridModel>();;
     @Input() totalCount: number;
     @Output() onPageSwitch = new EventEmitter();

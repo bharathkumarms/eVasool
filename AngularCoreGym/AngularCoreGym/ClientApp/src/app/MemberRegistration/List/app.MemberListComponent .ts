@@ -19,7 +19,7 @@ import { MemberRegistrationService } from '../Services/app.MemberRegistration.se
 export class MemberListComponent {
 
     dataSource = new MatTableDataSource<MemberRegistrationModel>();
-    displayedColumns: string[] = ['MemberId', 'MemberNo', 'MemberName', 'Contactno', 'PlanName', 'SchemeName', 'JoiningDate', 'EditAction', 'DeleteAction'];
+    displayedColumns: string[] = ['MemberId', 'MemberName', 'Contactno','JoiningDate', 'EditAction', 'DeleteAction'];
   
     _Route: any;
 
