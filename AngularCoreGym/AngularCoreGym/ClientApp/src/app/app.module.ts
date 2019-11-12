@@ -50,6 +50,7 @@ import { UserLogoutComponent } from './Login/app.UserLogout.Component';
 import { AdminAuthGuardService } from './AuthGuard/AdminAuthGuardService';
 import { UserAuthGuardService } from './AuthGuard/UserAuthGuardService';
 import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Component';
+import { AttachmentComponent } from './attachment/attachment.component';
 
 
 @NgModule({
@@ -90,7 +91,8 @@ import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Componen
     YearwiseReportComponent,
     MonthwiseReportComponent,
     RenewalReportComponent,
-    GenerateRecepitComponent
+    GenerateRecepitComponent,
+    AttachmentComponent
   ],
   imports: [
     BrowserModule,
@@ -126,7 +128,14 @@ import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Componen
               { path: 'Edit/:propertyItemId', component: EditPropertyItemComponent, canActivate: [UserAuthGuardService] },
               { path: 'All', component: AllPropertyItemComponent, canActivate: [UserAuthGuardService] }
           ]
-      },
+        },
+        {
+            path: 'Attachment',
+            component: AppUserLayoutComponent,
+            children: [
+                { path: 'All', component: AttachmentComponent, canActivate: [UserAuthGuardService] }
+            ]
+        },
       {
         path: 'Plan',
         component: AppAdminLayoutComponent,
