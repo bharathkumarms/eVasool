@@ -21,9 +21,10 @@ export class AttachmentComponent implements OnInit {
     public progress: number;
     public message: string;
     filterVal: any;
+    files: any;
 
     private data: any;
-    private apiUrl = environment.apiEndpoint + "/api/Attachment/";
+    private apiUrl = environment.apiEndpoint + "/api/Attachment";
     token: any;
     username: any;
 
@@ -50,6 +51,21 @@ export class AttachmentComponent implements OnInit {
 
     filterForeCasts(filterVal: any) {
         this.filterVal = filterVal;
+
+
+        let params = new URLSearchParams();
+        params.append("filterVal", this.filterVal);
+        this.getFileList();
+
+    }
+
+    getFileList() {
+        this.http.get(this.apiUrl + "?folder3Name=" + this.filterVal)
+            .subscribe(
+                data => {
+                    this.files = data;
+                }
+            );
     }
 
     public uploadFile = (files) => {
@@ -67,7 +83,8 @@ export class AttachmentComponent implements OnInit {
                 if (event.type === HttpEventType.UploadProgress)
                     this.progress = Math.round(100 * event.loaded / event.total);
                 else if (event.type === HttpEventType.Response) {
-                    this.message = 'Upload success.';
+                    alert('Upload success.');
+                    this.getFileList();
                     //this.onUploadFinished.emit(event.body);
                 }
             });

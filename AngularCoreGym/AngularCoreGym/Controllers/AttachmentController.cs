@@ -33,6 +33,8 @@ namespace AngularCoreGym.Controllers
             try
             {
                 var file = Request.Form.Files[0];
+                string webRootPath = _config.GetValue<string>("UploadDrive");
+                string folderName = _config.GetValue<string>("UploadFolder");
                 var folder3Name = string.Empty;
                 foreach (var key in Request.Form.Keys)
                 {
@@ -40,8 +42,6 @@ namespace AngularCoreGym.Controllers
                     break;
                 }
 
-                string webRootPath = _config.GetValue<string>("UploadDrive");
-                string folderName = _config.GetValue<string>("UploadFolder");
                 string newPath = Path.Combine(webRootPath, folderName, folder3Name);
                 if (!Directory.Exists(newPath))
                 {
@@ -62,6 +62,27 @@ namespace AngularCoreGym.Controllers
             {
                 return Json("Upload Failed: " + ex.Message);
             }
+        }
+
+        [HttpGet]
+        public IActionResult Files([System.Web.Http.FromUri] string folder3Name)
+        {
+            string webRootPath = _config.GetValue<string>("UploadDrive");
+            string folderName = _config.GetValue<string>("UploadFolder");
+
+            var result = new List<string>();
+
+            var uploads = Path.Combine(webRootPath, folderName, folder3Name);
+            if (Directory.Exists(uploads))
+            {
+                //var provider = uploads.ContentRootFileProvider;
+                foreach (string fileName in Directory.GetFiles(uploads))
+                {
+                    //var fileInfo = provider.GetFileInfo(fileName);
+                    result.Add(fileName);
+                }
+            }
+            return Ok(result);
         }
         /*
         // GET: api/Scheme

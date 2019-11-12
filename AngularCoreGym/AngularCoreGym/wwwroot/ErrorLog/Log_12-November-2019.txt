@@ -43,3 +43,30 @@ TargetSite ---
 Inner Exception is {0}System.NullReferenceException: Object reference not set to an instance of an object.
    at Microsoft.EntityFrameworkCore.Metadata.Internal.EntityMaterializerSource.TryReadValue[TValue](ValueBuffer& valueBuffer, Int32 index, IPropertyBase property)
 
+
+11/12/2019 6:04:04 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Attachment
+Action Method Name :- Files
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}Value cannot be null.
+Parameter name: path3
+Source ---
+{0}System.Private.CoreLib
+StackTrace ---
+{0}   at System.IO.Path.Combine(String path1, String path2, String path3)
+   at AngularCoreGym.Controllers.AttachmentController.Files(String folder3Name) in C:\eVasool\AngularCoreGym\AngularCoreGym\Controllers\AttachmentController.cs:line 75
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}System.String Combine(System.String, System.String, System.String)
+

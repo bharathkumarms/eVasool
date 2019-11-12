@@ -12,18 +12,22 @@
 
     <div class="row" style="margin-bottom:15px;">
       <div class="col-md-3">
-        Browse for file ... <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)">
+        <input type="file" #file placeholder="Upload file" (change)="uploadFile(file.files)">
         <button type="button" class="btn btn-success" (click)="file.click()" style="display:none">Upload File</button>
-      </div>
-      <div class="col-md-4">
-        <span class="upload" *ngIf="progress > 0">
-          {{progress}}%
-        </span>
-        <span class="upload" *ngIf="message">
-          {{message}}
-        </span>
       </div>
     </div>
 
   </div>
+</div>
+
+
+<div class="container">
+  <ul>
+    <li *ngFor="let file of files">
+      <a>
+        {{file}}
+        <input type="button" placeholder="Download" />
+      </a>
+    </li>
+  </ul>
 </div>
