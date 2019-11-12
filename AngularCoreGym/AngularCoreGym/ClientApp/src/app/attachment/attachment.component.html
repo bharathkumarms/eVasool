@@ -1,12 +1,19 @@
 <h4>Add Documents</h4>
 <hr>
+<select (change)="filterForeCasts($event.target.value)">
+  <option value="0">--Select Property--</option>
+  <option *ngFor="let property of propertyDropdownValue" value={{property}}>
+    {{property}}
+  </option>
+</select>
+
 <div class="panel panel-default">
   <div class="panel-body">
 
     <div class="row" style="margin-bottom:15px;">
       <div class="col-md-3">
         Browse for file ... <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)">
-        <button type="button" class="btn btn-success" (click)="file.click()" style="display:none">Choose File</button>
+        <button type="button" class="btn btn-success" (click)="file.click()" style="display:none">Upload File</button>
       </div>
       <div class="col-md-4">
         <span class="upload" *ngIf="progress > 0">

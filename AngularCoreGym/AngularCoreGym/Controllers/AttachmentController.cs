@@ -33,10 +33,16 @@ namespace AngularCoreGym.Controllers
             try
             {
                 var file = Request.Form.Files[0];
-                
+                var folder3Name = string.Empty;
+                foreach (var key in Request.Form.Keys)
+                {
+                    folder3Name = key;
+                    break;
+                }
+
                 string webRootPath = _config.GetValue<string>("UploadDrive");
                 string folderName = _config.GetValue<string>("UploadFolder");
-                string newPath = Path.Combine(webRootPath, folderName);
+                string newPath = Path.Combine(webRootPath, folderName, folder3Name);
                 if (!Directory.Exists(newPath))
                 {
                     Directory.CreateDirectory(newPath);
