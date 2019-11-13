@@ -4,3 +4,13 @@
   margin-left: 15px;
   line-height: 36px;
 }
+
+.select-control {
+  font-size: 17px;
+  margin-left: 25px;
+  width: 25%;
+}
+
+.upload-control {
+  margin-left: 25px;
+}

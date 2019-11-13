@@ -13,7 +13,7 @@ import { Subject } from 'rxjs';
 @Component({
     selector: 'app-attachment',
     templateUrl: './attachment.component.html',
-    styleUrls: ['./attachment.component.css']
+    styleUrls: ['./attachment.component.css', '../Content/vendor/bootstrap/css/bootstrap.min.css']
 })
 export class AttachmentComponent implements OnInit {
     private _PropertyItemService;
