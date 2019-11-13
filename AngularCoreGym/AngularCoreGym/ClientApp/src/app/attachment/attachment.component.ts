@@ -5,6 +5,11 @@ import { HttpEventType, HttpClient } from '@angular/common/http';
 import { environment } from "src/app/Shared/environment";
 import { PropertyItemService } from 'src/app/PropertyItem/Services/app.PropertyItem.Service';
 
+import { Observable } from 'rxjs';
+import { saveAs } from 'file-saver';
+import { map } from "rxjs/operators";
+import { Subject } from 'rxjs';
+
 @Component({
     selector: 'app-attachment',
     templateUrl: './attachment.component.html',
@@ -78,7 +83,7 @@ export class AttachmentComponent implements OnInit {
         formData.append('file', fileToUpload, fileToUpload.name);
         formData.append(this.filterVal, this.filterVal);
 
-        this.http.post(this.apiUrl, formData, { reportProgress: true, observe: 'events'})
+        this.http.post(this.apiUrl, formData, { reportProgress: true, observe: 'events' })
             .subscribe(event => {
                 if (event.type === HttpEventType.UploadProgress)
                     this.progress = Math.round(100 * event.loaded / event.total);
@@ -99,27 +104,67 @@ export class AttachmentComponent implements OnInit {
                 }
             );
     }
-
-    /*
-    handleFileInput(files: FileList) {
-        this.fileToUpload = files.item(0);
+    
+    download(file) {
+        let fileName = file;
+        //file type extension
+        let checkFileType = fileName.split('.').pop();
+        var fileType;
+        if (checkFileType == ".txt") {
+            fileType = "text/plain";
+        }
+        if (checkFileType == ".pdf") {
+            fileType = "application/pdf";
+        }
+        if (checkFileType == ".doc") {
+            fileType = "application/vnd.ms-word";
+        }
+        if (checkFileType == ".docx") {
+            fileType = "application/vnd.ms-word";
+        }
+        if (checkFileType == ".xls") {
+            fileType = "application/vnd.ms-excel";
+        }
+        if (checkFileType == ".png") {
+            fileType = "image/png";
+        }
+        if (checkFileType == ".jpg") {
+            fileType = "image/jpeg";
+        }
+        if (checkFileType == ".jpeg") {
+            fileType = "image/jpeg";
+        }
+        if (checkFileType == ".gif") {
+            fileType = "image/gif";
+        }
+        if (checkFileType == ".csv") {
+            fileType = "text/csv";
+        }
+        this.DownloadFile(fileName, fileType)
+            .subscribe(
+                success => {
+                    saveAs(success, fileName);
+                },
+                err => {
+                    alert("Server error while downloading file.");
+                }
+            );
     }
 
-    uploadFile() {
-        this._attachmentService.SaveAttachment(this.fileToUpload).subscribe(
-            response => {
-                this.output = response
-                if (this.output.StatusCode == "409") {
-                    alert('Attachment Already Exists');
-                }
-                else if (this.output.StatusCode == "200") {
-                    alert('Attachment Created Successfully');
-                    //this._Route.navigate(['/User/All']);
-                }
-                else {
-                    alert('Something Went Wrong');
-                }
-            });
-    }*/
+    DownloadFile(filePath: string, fileType: string): Observable<any> {
 
+        let fileExtension = fileType;
+        let input = filePath;
+
+        return this.http.get(this.apiUrl + "/download?fileName=" + input, {
+            responseType: 'blob',
+            observe: 'response'
+        })
+            .pipe(
+                map((res: any) => {
+                    return new Blob([res.body], { type: fileExtension });
+                })
+            );
+    }
+    
 }

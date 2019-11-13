@@ -96,6 +96,17 @@ namespace AngularCoreGym.Controllers
             }
             return Ok();
         }
+        
+        [HttpGet]
+        [Route("download")]
+        public async Task<FileStream> DownloadFile(string fileName)
+        {
+            var file = Path.Combine(Path.Combine(fileName));
+            return new FileStream(file, FileMode.Open, FileAccess.Read);
+        }
+
+
+
         /*
         // GET: api/Scheme
         [HttpGet]
