@@ -107,7 +107,6 @@ export class AttachmentComponent implements OnInit {
     
     download(file) {
         let fileName = file;
-        //file type extension
         let checkFileType = fileName.split('.').pop();
         var fileType;
         if (checkFileType == ".txt") {

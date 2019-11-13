@@ -75,10 +75,8 @@ namespace AngularCoreGym.Controllers
             var uploads = Path.Combine(webRootPath, folderName, folder3Name);
             if (Directory.Exists(uploads))
             {
-                //var provider = uploads.ContentRootFileProvider;
                 foreach (string fileName in Directory.GetFiles(uploads))
                 {
-                    //var fileInfo = provider.GetFileInfo(fileName);
                     result.Add(fileName);
                 }
             }
@@ -101,115 +99,7 @@ namespace AngularCoreGym.Controllers
         [Route("download")]
         public async Task<FileStream> DownloadFile(string fileName)
         {
-            var file = Path.Combine(Path.Combine(fileName));
-            return new FileStream(file, FileMode.Open, FileAccess.Read);
+            return new FileStream(fileName, FileMode.Open, FileAccess.Read);
         }
-
-
-
-        /*
-        // GET: api/Scheme
-        [HttpGet]
-        public List<PropertyItem> Get()
-        {
-            return _propertyItem.GetPropertyItemList();
-        }
-
-        
-        // GET: api/Scheme/5
-        [HttpGet("{id}", Name = "GetPropertyItem")]
-        public PropertyItem Get(int id)
-        {
-            return _propertyItem.GetPropertyItembyId(id);
-        }
-        */
-        /*
-        // POST: api/Scheme
-        [HttpPost]
-        public HttpResponseMessage Post([FromBody] IFormFile propertyItem)
-        {
-            var response = new HttpResponseMessage()
-            {
-                StatusCode = HttpStatusCode.OK
-            };
-            return response;
-            
-            if (ModelState.IsValid)
-            {
-                var userId = this.User.FindFirstValue(ClaimTypes.Name);
-
-                propertyItem.CreatedDate = DateTime.Now;
-                propertyItem.ModifiedDate = DateTime.Now;
-                propertyItem.CreatedBy = userId;
-                propertyItem.ModifiedBy = userId;
-               // _propertyItem.AddPropertyItem(propertyItem);
-
-                var response = new HttpResponseMessage()
-                {
-                    StatusCode = HttpStatusCode.OK
-                };
-
-                return response;
-            }
-            else
-            {
-                var response = new HttpResponseMessage()
-                {
-
-                    StatusCode = HttpStatusCode.BadRequest
-                };
-
-                return response;
-            }
-        }*/
-        /*
-        // PUT: api/Scheme/5
-        [HttpPut("{id}")]
-        public HttpResponseMessage Put(int id, [FromBody] PropertyItem propertyItem)
-        {
-            if (string.IsNullOrWhiteSpace(Convert.ToString(id)) || propertyItem == null)
-            {
-                var response = new HttpResponseMessage()
-                {
-                    StatusCode = HttpStatusCode.BadRequest
-                };
-                return response;
-            }
-            else
-            {
-                var result = _propertyItem.UpdatePropertyItem(propertyItem);
-
-                var response = new HttpResponseMessage()
-                {
-                    StatusCode = HttpStatusCode.OK
-                };
-                return response;
-            }
-        }
-        
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public HttpResponseMessage Delete(int id)
-        {
-            var result = _propertyItem.DeletePropertyItem(id);
-
-            if (result)
-            {
-                var response = new HttpResponseMessage()
-                {
-                    StatusCode = HttpStatusCode.OK
-                };
-                return response;
-            }
-            else
-            {
-                var response = new HttpResponseMessage()
-                {
-                    StatusCode = HttpStatusCode.BadRequest
-                };
-                return response;
-            }
-        }
-        */
     }
 }
