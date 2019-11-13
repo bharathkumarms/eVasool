@@ -26,8 +26,13 @@
     <li *ngFor="let file of files">
       <a>
         {{file}}
-        <input type="button" placeholder="Download" />
       </a>
+      <span>
+        <input type="button" placeholder="Download" value="Download" (click)="download(file)" />
+      </span>
+      <span>
+        <input type="button" placeholder="Delete" value="Delete" (click)="delete(file)" />
+      </span>
     </li>
   </ul>
 </div>

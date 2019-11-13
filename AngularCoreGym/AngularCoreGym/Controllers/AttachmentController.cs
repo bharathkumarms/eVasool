@@ -84,6 +84,18 @@ namespace AngularCoreGym.Controllers
             }
             return Ok(result);
         }
+
+        [HttpDelete]
+        [Route("delete")]
+        public IActionResult Delete(string fileName)
+        {
+            if (System.IO.File.Exists(fileName))
+            {
+                // If file found, delete it    
+                System.IO.File.Delete(Path.Combine(fileName));
+            }
+            return Ok();
+        }
         /*
         // GET: api/Scheme
         [HttpGet]

@@ -90,6 +90,16 @@ export class AttachmentComponent implements OnInit {
             });
     }
 
+    delete(file) {
+        this.http.delete(this.apiUrl + "/delete?fileName=" + file)
+            .subscribe(
+                data => {
+                    alert('Delete success.');
+                    this.getFileList();
+                }
+            );
+    }
+
     /*
     handleFileInput(files: FileList) {
         this.fileToUpload = files.item(0);
