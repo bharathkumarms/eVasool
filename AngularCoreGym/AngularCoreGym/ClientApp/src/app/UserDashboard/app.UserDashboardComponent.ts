@@ -35,6 +35,10 @@ export class UserDashboardComponent
     private apiUrl = environment.apiEndpoint + "/api/PropertyItem/audit";
     token: any;
     username: any;
+    assertCount: any;
+    activeMember: any;
+    activeAssets: number = 0;
+    totalDues: number = 0;
 
     constructor(private location: Location, private _Route: Router, private http: HttpClient, private PropertyItemService: PropertyItemService) {
         this.data = JSON.parse(localStorage.getItem('currentUser'));
@@ -52,7 +56,33 @@ export class UserDashboardComponent
                     this.dataSource.sort = this.sort;
                     this.dataSource.paginator = this.paginator;
                 }
-            );
+        );
+
+        this._PropertyItemService.GetAllPropertyItem().subscribe(
+            AllPropertyItem => {
+                this.AllPropertyItemList = AllPropertyItem;
+                this.assertCount = this.AllPropertyItemList.length;
+
+                var count = this.AllPropertyItemList.reduce((acc, o) => (acc[o.MemberId] = (acc[o.MemberId] || 0) + 1, acc), {});
+                count = Object.values(count);
+                this.activeMember = count.length - 1;
+
+                var todayDate = new Date()
+
+                for (var i = 0; i < this.AllPropertyItemList.length; i++){
+                    if (this.AllPropertyItemList[i].IsActive) {
+                        this.activeAssets = this.activeAssets + 1;
+                    }
+
+                    if (new Date(this.AllPropertyItemList[i].NextDueDate) < new Date()) {
+                        this.totalDues = this.totalDues + 1;
+                        
+                    }
+                }
+
+            },
+            error => this.errorMessage = <any>error
+        );
     }
 
     applyFilter(filterValue: string) {
