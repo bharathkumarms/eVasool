@@ -20,6 +20,7 @@ var PropertyItemMasterModel = /** @class */ (function () {
         this.Email = "";
         this.CreatedBy = "";
         this.ModifiedBy = "";
+        this.MemberId = 0;
     }
     return PropertyItemMasterModel;
 }());

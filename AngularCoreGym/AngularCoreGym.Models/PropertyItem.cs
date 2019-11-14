@@ -52,5 +52,7 @@ namespace AngularCoreGym.Models
         [DataType(DataType.DateTime)]
         public DateTime ModifiedDate { get; set; }
         public string ModifiedBy { get; set; }
+
+        public int MemberId { get; set; }
     }
 }

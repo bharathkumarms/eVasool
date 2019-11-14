@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PropertyItemMasterModel } from './app.PropertyItemModel';
 import { PropertyItemService } from './Services/app.PropertyItem.Service';
+import { MemberRegistrationService } from 'src/app/MemberRegistration/Services/app.MemberRegistration.service';
 import { Router } from '@angular/router';
 import { MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition, MatSnackBarConfig, MatSnackBar } from '@angular/material';
 
@@ -10,10 +11,14 @@ import { MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition, MatSnackBar
 })
 
 export class PropertyItemComponent {
+    private _memberService;
     title = "PropertyItem Master";
     PropertyItemForms: PropertyItemMasterModel = new PropertyItemMasterModel();
     private _PropertyItemService;
     private responsedata: any;
+    userDropdownValue: Array<any>;
+    AllUserList: any[];
+    errorMessage: any;
     
     actionButtonLabel: string = 'Retry';
     action: boolean = false;
@@ -24,10 +29,26 @@ export class PropertyItemComponent {
 
 
 
-    constructor(private _Route: Router,public snackBar: MatSnackBar,  private PropertyItemService: PropertyItemService) {
+    constructor(private _Route: Router, public snackBar: MatSnackBar, private PropertyItemService: PropertyItemService, private memberService: MemberRegistrationService) {
         this._PropertyItemService = PropertyItemService;
+        this._memberService = memberService;
     }
     output: any;
+
+    ngOnInit() {
+        this.userDropdownValue = new Array<any>();
+        this._memberService.GetAllMember().subscribe(
+            AllUser => {
+                this.AllUserList = AllUser.value;
+
+                for (var i = 0; i < this.AllUserList.length; i++) {
+                    this.userDropdownValue.push(this.AllUserList[i]);
+                }
+            },
+            error => this.errorMessage = <any>error
+        );
+    }
+
     onSubmit() {
         this._PropertyItemService.SavePropertyItem(this.PropertyItemForms).subscribe(
             response => 

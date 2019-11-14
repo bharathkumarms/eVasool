@@ -6,7 +6,7 @@
   <div class="panel-body">
     <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
       <div class="row">
-        <div class="col-md-3">
+        <!--<div class="col-md-3">
           <label for="PropertyItemID">PropertyItemID</label>
           <input type="text" class="form-control" name="PropertyItemID" [(ngModel)]="PropertyItemForms.PropertyItemID"
                  maxlength="50" #refPropertyItemID="ngModel" id="PropertyItemID" required>
@@ -15,7 +15,7 @@
               PropertyItemID is required
             </div>
           </div>
-        </div>
+        </div>-->
         <div class="col-md-3">
           <label for="Name">Name</label>
           <input type="text" class="form-control" name="Name" [(ngModel)]="PropertyItemForms.Name"
@@ -108,6 +108,16 @@
           <label for="Email">Email</label>
           <input type="text" class="form-control" name="Email" [(ngModel)]="PropertyItemForms.Email"
                  maxlength="50" id="Email">
+        </div>
+
+        <div class="col-md-6">
+          <label for="name">Select the tenant or landlord</label>
+          <select name="User" #refUser="ngModel" class="form-control" [(ngModel)]="PropertyItemForms.MemberId">
+            <option value=''>Please select Value</option>
+            <option *ngFor="let user of userDropdownValue" [ngValue]="user.MemberId">
+              {{user.MemberId + "-" + user.MemberName}}
+            </option>
+          </select>
         </div>
 
         <div class="col-md-3">

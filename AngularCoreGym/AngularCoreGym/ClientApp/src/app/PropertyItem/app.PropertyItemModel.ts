@@ -21,4 +21,5 @@ export class PropertyItemMasterModel {
     public ModifiedDate: Date;
     public CreatedBy: string = "";
     public ModifiedBy: string = "";
+    public MemberId: number = 0;
 }
