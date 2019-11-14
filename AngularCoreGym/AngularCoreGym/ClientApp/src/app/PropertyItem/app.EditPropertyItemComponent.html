@@ -104,6 +104,15 @@
                        maxlength="50" id="Email">
               </div>
 
+              <div class="col-md-6">
+                <label for="name">Select the tenant or assert owner</label>
+                <select name="User" #refUser="ngModel" class="form-control" [(ngModel)]="PropertyItemForms.MemberId">
+                  <option *ngFor="let user of userDropdownValue" [ngValue]="user.MemberId">
+                    {{user.MemberId + "-" + user.MemberName}}
+                  </option>
+                </select>
+              </div>
+
               <div class="col-md-3">
                 <label for="name">IsActive</label>
                 <br>
