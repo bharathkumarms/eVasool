@@ -17,7 +17,7 @@ export class AllPropertyItemComponent implements OnInit {
   errorMessage: any;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-    displayedColumns: string[] = ['PropertyItemId', 'Name', 'LeaseDueDate', 'NextDueDate', 'EditAction', 'DeleteAction'];
+    displayedColumns: string[] = ['PropertyItemId', 'Name', 'MemberId', 'LeaseDueDate', 'NextDueDate', 'EditAction', 'DeleteAction'];
   dataSource: any;
   
   

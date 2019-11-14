@@ -1,7 +1,7 @@
 USE [AngularGYMDB]
 GO
 
-/****** Object:  Table [dbo].[PropertyItem]    Script Date: 11/10/2019 9:09:20 AM ******/
+/****** Object:  Table [dbo].[PropertyItem]    Script Date: 11/14/2019 12:45:10 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[PropertyItem](
-	[PropertyItemId] [int] NOT NULL,
+	[PropertyItemId] [int] IDENTITY(1,1) NOT NULL,
 	[Name] [nvarchar](100) NOT NULL,
 	[Description] [nvarchar](1000) NULL,
 	[Area] [nvarchar](100) NULL,
@@ -31,6 +31,7 @@ CREATE TABLE [dbo].[PropertyItem](
 	[CreatedBy] [nvarchar](100) NULL,
 	[ModifiedDate] [date] NULL,
 	[ModifiedBy] [nvarchar](100) NULL,
+	[MemberId] [int] NULL,
  CONSTRAINT [PK_PropertyItem] PRIMARY KEY CLUSTERED 
 (
 	[PropertyItemId] ASC
