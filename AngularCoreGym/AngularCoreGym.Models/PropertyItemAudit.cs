@@ -26,9 +26,9 @@ namespace AngularCoreGym.Models
 
         //public Landlord LeasedTo { get; set; }
 
-        public DateTime LeaseDueDate { get; set; }
+        public DateTime? LeaseDueDate { get; set; }
 
-        public DateTime NextDueDate { get; set; }
+        public DateTime? NextDueDate { get; set; }
 
         public bool IsActive { get; set; }
 

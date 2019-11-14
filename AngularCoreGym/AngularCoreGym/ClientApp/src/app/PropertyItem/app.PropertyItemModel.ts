@@ -8,8 +8,8 @@ export class PropertyItemMasterModel {
     public City: string = "";
     public Country: string = "";
     public Zip: string = "";
-    public LeaseDueDate: Date;
-    public NextDueDate: Date;
+    public LeaseDueDate: Date=null;
+    public NextDueDate: Date=null;
     public IsActive: boolean = true;
     public TotalLeaseAmount: number = 0;
     public InstallmentAmount: number = 0;

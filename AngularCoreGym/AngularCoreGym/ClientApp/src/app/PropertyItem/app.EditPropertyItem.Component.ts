@@ -60,10 +60,6 @@ export class EditPropertyItemComponent implements OnInit {
 
     onSubmit() 
     {
-        //This is a trick, member id is int as well as object
-        //let tempId = this.PropertyItemForms.MemberId.MemberId;
-        //this.PropertyItemForms.MemberId = tempId.MemberId;
-
         this._PropertyItemService.UpdatePropertyItem(this.PropertyItemForms)
         .subscribe(response => 
         {
