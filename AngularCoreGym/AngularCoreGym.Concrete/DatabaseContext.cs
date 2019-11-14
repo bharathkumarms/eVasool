@@ -25,6 +25,7 @@ namespace AngularCoreGym.Concrete
         public DbSet<PaymentDetails> PaymentDetails { get; set; }
 
         public DbSet<PropertyItem> PropertyItem { get; set; }
+        public DbSet<PropertyItemAudit> PropertyItemAudit { get; set; }
 
     }
 }

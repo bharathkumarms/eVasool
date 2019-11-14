@@ -14,7 +14,6 @@ using AngularCoreGym.ViewModels;
 
 namespace AngularCoreGym.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PropertyItemController : ControllerBase
@@ -32,7 +31,14 @@ namespace AngularCoreGym.Controllers
             return _propertyItem.GetPropertyItemList();
         }
 
-        
+        [HttpGet]
+        [Route("audit")]
+        public List<PropertyItemAudit> GetAudit()
+        {
+            return _propertyItem.GetPropertyItemAudit();
+        }
+
+
         // GET: api/Scheme/5
         [HttpGet("{id}", Name = "GetPropertyItem")]
         public PropertyItem Get(int id)
@@ -77,6 +83,8 @@ namespace AngularCoreGym.Controllers
         [HttpPut("{id}")]
         public HttpResponseMessage Put(int id, [FromBody] PropertyItem propertyItem)
         {
+            var userId = this.User.FindFirstValue(ClaimTypes.Name);
+
             if (string.IsNullOrWhiteSpace(Convert.ToString(id)) || propertyItem == null)
             {
                 var response = new HttpResponseMessage()
@@ -87,6 +95,8 @@ namespace AngularCoreGym.Controllers
             }
             else
             {
+                propertyItem.ModifiedDate = DateTime.Now;
+                propertyItem.ModifiedBy = userId;
                 var result = _propertyItem.UpdatePropertyItem(propertyItem);
 
                 var response = new HttpResponseMessage()

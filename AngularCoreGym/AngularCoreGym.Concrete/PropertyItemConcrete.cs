@@ -23,11 +23,19 @@ namespace AngularCoreGym.Concrete
         public List<PropertyItem> GetPropertyItemList()
         {
             var result = (from propertyItem in _context.PropertyItem
-                          select propertyItem).ToList();
+                          select propertyItem).OrderByDescending(a => a.ModifiedDate).ToList();
 
             return result;
         }
-        
+
+        public List<PropertyItemAudit> GetPropertyItemAudit()
+        {
+            var result = (from audit in _context.PropertyItemAudit
+                          select audit).OrderByDescending(a=> a.ModifiedDate).ToList();
+
+            return result;
+        }
+
         public PropertyItem GetPropertyItembyId(int propertyItemId)
         {
             var result = (from propertyItem in _context.PropertyItem
@@ -46,14 +54,50 @@ namespace AngularCoreGym.Concrete
             return result > 0 ? true : false;
         }
         */
+        private PropertyItemAudit MapPropertyItemAudit(PropertyItem item, string action)
+        {
+            var audit = new PropertyItemAudit
+            {
+                Action = action,
+                AddressLine1 = item.AddressLine1,
+                AddressLine2 = item.AddressLine2,
+                Area = item.Area,
+                City = item.City,
+                Country = item.Country,
+                CreatedBy = item.CreatedBy,
+                CreatedDate = item.CreatedDate,
+                Description = item.Description,
+                Email = item.Description,
+                InstallementPaid = item.InstallementPaid,
+                InstallmentAmount = item.InstallmentAmount,
+                IsActive = item.IsActive,
+                LeaseDueDate = item.LeaseDueDate,
+                MemberId = item.MemberId,
+                ModifiedBy = item.ModifiedBy,
+                ModifiedDate = item.ModifiedDate,
+                Name = item.Name,
+                NextDueDate = item.NextDueDate,
+                Notes = item.Notes,
+                Phone = item.Phone,
+                PropertyItemId = item.PropertyItemId,
+                TotalLeaseAmount = item.TotalLeaseAmount,
+                Zip = item.Zip
+            };
+            return audit;
+        }
         public bool AddPropertyItem(PropertyItem propertyItem)
         {
             //var connectionString = _configuration.GetConnectionString("DatabaseConnection");
 
             _context.PropertyItem.Add(propertyItem);
             var result = _context.SaveChanges();
+
             if (result > 0)
             {
+                var audit = MapPropertyItemAudit(propertyItem, "Create");
+                _context.PropertyItemAudit.Add(audit);
+                var result1 = _context.SaveChanges();
+
                 return true;
             }
             else
@@ -67,8 +111,13 @@ namespace AngularCoreGym.Concrete
             var entity = GetPropertyItembyId(propertyItem.PropertyItemId);
             _context.Entry(entity).CurrentValues.SetValues(propertyItem);
             var result = _context.SaveChanges();
+
             if (result > 0)
             {
+                var audit = MapPropertyItemAudit(propertyItem, "Update");
+                _context.PropertyItemAudit.Add(audit);
+                var result1 = _context.SaveChanges();
+
                 return true;
             }
             else
@@ -82,6 +131,7 @@ namespace AngularCoreGym.Concrete
             var propertyitem = (from propertyItem in _context.PropertyItem
                                 where propertyItem.PropertyItemId == propertyItemId
                                 select propertyItem).FirstOrDefault();
+
             if (propertyitem != null)
             {
                 _context.PropertyItem.Remove(propertyitem);
@@ -89,6 +139,11 @@ namespace AngularCoreGym.Concrete
 
                 if (result > 0)
                 {
+                    propertyitem.ModifiedDate = DateTime.Now;
+                    var audit = MapPropertyItemAudit(propertyitem, "Delete");
+                    _context.PropertyItemAudit.Add(audit);
+                    var result1 = _context.SaveChanges();
+
                     return true;
                 }
                 else
