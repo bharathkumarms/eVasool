@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material';
 
 import { PaginationService } from '../../Shared/PaginationService';
 import { MemberRegistrationModel } from '../Models/app.memberRegistrationModel';
@@ -17,7 +18,7 @@ import { MemberRegistrationService } from '../Services/app.MemberRegistration.se
 })
 
 export class MemberListComponent {
-
+    @ViewChild(MatSort) sort: MatSort;
     dataSource = new MatTableDataSource<MemberRegistrationModel>();
     displayedColumns: string[] = ['MemberId', 'MemberName', 'Contactno','JoiningDate', 'EditAction', 'DeleteAction'];
   
@@ -27,12 +28,13 @@ export class MemberListComponent {
     set dataSourceForTable(value: MemberRegistrationModel[]) 
     {
         this.dataSource = new MatTableDataSource<MemberRegistrationModel>(value);
+        this.dataSource.sort = this.sort;
     }
 
     @Input() totalCount: number;
     @Output() onPageSwitch = new EventEmitter();
 
-    constructor(public paginationService: PaginationService, private memberregistration: MemberRegistrationService,) { }
+    constructor(public paginationService: PaginationService, private memberregistration: MemberRegistrationService, ) { }
 
     applyFilter(filterValue: string) {
         this.dataSource.filter = filterValue.trim().toLowerCase();
