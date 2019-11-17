@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using AngularCoreGym.Interface;
 using AngularCoreGym.Models;
 using AngularCoreGym.ViewModels;
+using System.Globalization;
 
 namespace AngularCoreGym.Controllers
 {
@@ -58,6 +59,16 @@ namespace AngularCoreGym.Controllers
                 propertyItem.ModifiedDate = DateTime.Now;
                 propertyItem.CreatedBy = userId;
                 propertyItem.ModifiedBy = userId;
+
+                if (propertyItem.LeaseDueDate != null)
+                {
+                    propertyItem.LeaseDueDate = ConvertToIST(propertyItem.LeaseDueDate);
+                }
+                if (propertyItem.NextDueDate != null)
+                {
+                    propertyItem.NextDueDate = ConvertToIST(propertyItem.NextDueDate);
+                }
+
                 _propertyItem.AddPropertyItem(propertyItem);
 
                 var response = new HttpResponseMessage()
@@ -95,6 +106,14 @@ namespace AngularCoreGym.Controllers
             }
             else
             {
+                if(propertyItem.LeaseDueDate != null)
+                {
+                    propertyItem.LeaseDueDate = ConvertToIST(propertyItem.LeaseDueDate);
+                }
+                if (propertyItem.NextDueDate != null)
+                {
+                    propertyItem.NextDueDate = ConvertToIST(propertyItem.NextDueDate);
+                }
                 propertyItem.ModifiedDate = DateTime.Now;
                 propertyItem.ModifiedBy = userId;
                 var result = _propertyItem.UpdatePropertyItem(propertyItem);
@@ -105,6 +124,14 @@ namespace AngularCoreGym.Controllers
                 };
                 return response;
             }
+        }
+
+        private DateTime ConvertToIST(DateTime? dt)
+        {
+            DateTime utcdate = DateTime.ParseExact(dt.ToString(), "M/dd/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
+            var istdate = TimeZoneInfo.ConvertTimeFromUtc(utcdate,
+            TimeZoneInfo.FindSystemTimeZoneById("India Standard Time"));
+            return istdate;
         }
         
         // DELETE: api/ApiWithActions/5

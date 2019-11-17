@@ -57,14 +57,14 @@
 
               <div class="col-md-3">
                 <label for="LeaseDueDate">LeaseDueDate</label>
-                <input [(ngModel)]="PropertyItemForms.LeaseDueDate" name="LeaseDueDate" id="LeaseDueDate" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
-                       class="form-control" #refLeaseDueDate="bsDatepicker" bsDatepicker>
+                <input [(ngModel)]="PropertyItemForms.LeaseDueDate" name="LeaseDueDate" id="LeaseDueDate" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', format: 'YYYY-MM-DD' }"
+                       class="form-control" #refLeaseDueDate="bsDatepicker" autocomplete="off" bsDatepicker>
               </div>
 
               <div class="col-md-3">
                 <label for="NextDueDate">NextDueDate</label>
                 <input [(ngModel)]="PropertyItemForms.NextDueDate" name="NextDueDate" id="NextDueDate" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
-                       class="form-control" #refNextDueDate="bsDatepicker" bsDatepicker>
+                       class="form-control" #refNextDueDate="bsDatepicker" autocomplete="off" bsDatepicker>
               </div>
 
               <div class="col-md-3">

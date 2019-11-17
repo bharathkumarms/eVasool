@@ -73,12 +73,12 @@
 
           <ng-container matColumnDef="LeaseDueDate">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> LeaseDueDate </th>
-            <td mat-cell *matCellDef="let element"> {{element.LeaseDueDate}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.LeaseDueDate| date:'yyyy-MM-dd'}} </td>
           </ng-container>
 
           <ng-container matColumnDef="NextDueDate">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> NextDueDate </th>
-            <td mat-cell *matCellDef="let element"> {{element.NextDueDate}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.NextDueDate| date:'yyyy-MM-dd'}} </td>
           </ng-container>
 
           <ng-container matColumnDef="Action">
