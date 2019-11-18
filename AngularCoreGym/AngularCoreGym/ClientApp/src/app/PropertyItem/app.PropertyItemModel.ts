@@ -11,9 +11,9 @@ export class PropertyItemMasterModel {
     public LeaseDueDate: Date=null;
     public NextDueDate: Date=null;
     public IsActive: boolean = true;
-    public TotalLeaseAmount: number = 0;
-    public InstallmentAmount: number = 0;
-    public InstallementPaid: number = 0;
+    public TotalLeaseAmount: number = null;
+    public InstallmentAmount: number = null;
+    public InstallementPaid: number = null;
     public Notes: string = "";
     public Phone: string = "";
     public Email: string = "";
@@ -21,5 +21,5 @@ export class PropertyItemMasterModel {
     public ModifiedDate: Date;
     public CreatedBy: string = "";
     public ModifiedBy: string = "";
-    public MemberId: number = 0;
+    public MemberId: number = null;
 }

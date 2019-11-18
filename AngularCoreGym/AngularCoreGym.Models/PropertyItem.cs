@@ -33,11 +33,11 @@ namespace AngularCoreGym.Models
 
         //public string file { get; set; }
 
-        public decimal TotalLeaseAmount { get; set; }
+        public decimal? TotalLeaseAmount { get; set; }
 
-        public decimal InstallmentAmount { get; set; }
+        public decimal? InstallmentAmount { get; set; }
 
-        public int InstallementPaid { get; set; }
+        public int? InstallementPaid { get; set; }
 
         public string Notes { get; set; }
 
@@ -53,6 +53,6 @@ namespace AngularCoreGym.Models
         public DateTime ModifiedDate { get; set; }
         public string ModifiedBy { get; set; }
 
-        public int MemberId { get; set; }
+        public int? MemberId { get; set; }
     }
 }

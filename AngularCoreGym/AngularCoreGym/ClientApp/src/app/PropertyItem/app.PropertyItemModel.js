@@ -14,15 +14,15 @@ var PropertyItemMasterModel = /** @class */ (function () {
         this.LeaseDueDate = null;
         this.NextDueDate = null;
         this.IsActive = true;
-        this.TotalLeaseAmount = 0;
-        this.InstallmentAmount = 0;
-        this.InstallementPaid = 0;
+        this.TotalLeaseAmount = null;
+        this.InstallmentAmount = null;
+        this.InstallementPaid = null;
         this.Notes = "";
         this.Phone = "";
         this.Email = "";
         this.CreatedBy = "";
         this.ModifiedBy = "";
-        this.MemberId = 0;
+        this.MemberId = null;
     }
     return PropertyItemMasterModel;
 }());
