@@ -16,21 +16,21 @@ import { environment } from "src/app/Shared/environment";
 
 export class ReportService {
     private data: any;
-    private apiUrl = environment.apiEndpoint + "/api/User/";
+    private apiUrl = environment.apiEndpoint + "/api/MemberDetailsReport/";
     token: any;
     username: any;
 
     constructor(private http: HttpClient) {
-        this.data = JSON.parse(localStorage.getItem('AdminUser'));
+        this.data = JSON.parse(localStorage.getItem('currentUser'));
         this.token = this.data.token;
     }
 
     // Get All Member DetailsReport
     public GetAllMemberDetailsReport() {
-        var apiUrl = "	http://localhost:49505/api/MemberDetailsReport/";
+        //var apiUrl = "	http://localhost:49505/api/MemberDetailsReport/";
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
-        return this.http.get<MemberDetailsReportModel[]>(apiUrl, { headers: headers }).pipe(tap(data => data),
+        return this.http.get<MemberDetailsReportModel[]>(this.apiUrl, { headers: headers }).pipe(tap(data => data),
             catchError(this.handleError)
         );
     }

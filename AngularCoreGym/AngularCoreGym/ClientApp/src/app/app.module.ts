@@ -213,9 +213,9 @@ import { AttachmentComponent } from './attachment/attachment.component';
       },
       {
         path: 'Report',
-        component: AppAdminLayoutComponent,
+        component: AppUserLayoutComponent,
         children: [
-          { path: 'Member', component: MemberDetailsReportComponent, canActivate: [AdminAuthGuardService] },
+            { path: 'Member', component: MemberDetailsReportComponent, canActivate: [UserAuthGuardService] },
           { path: 'Yearwise', component: YearwiseReportComponent, canActivate: [AdminAuthGuardService] },
           { path: 'Monthwise', component: MonthwiseReportComponent, canActivate: [AdminAuthGuardService] },
           { path: 'Renewal', component: RenewalReportComponent, canActivate: [AdminAuthGuardService] }

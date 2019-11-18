@@ -26,7 +26,7 @@ export class MemberDetailsReportComponent
     }
 
     @ViewChild('TABLE') table: ElementRef;
-    displayedColumns = ['MemberNo','Name', 'Contactno', 'EmailID', 'PlanName', 'SchemeName', 'JoiningDate', 'RenwalDate', 'PaymentAmount'];
+    displayedColumns = ['MemberId','Name', 'Contactno', 'EmailID', 'DOB','Gender', 'JoiningDate'];
     
 
     ngOnInit() {
@@ -48,7 +48,7 @@ export class MemberDetailsReportComponent
         const wb: XLSX.WorkBook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
         /* save to file */
-        XLSX.writeFile(wb, 'MemberRenewalReport.xlsx');
+        XLSX.writeFile(wb, 'AllMemberReport.xlsx');
     }
 
 
