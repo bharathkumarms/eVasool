@@ -41,7 +41,9 @@ export class MemberViewComponent implements OnInit {
             });           
     }
 
-  
+    Delete(args) {
+
+    }
       
 
     

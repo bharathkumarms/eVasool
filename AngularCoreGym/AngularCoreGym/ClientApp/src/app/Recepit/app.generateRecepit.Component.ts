@@ -21,6 +21,7 @@ export class GenerateRecepitComponent implements OnInit {
     GenerateRecepitRequestModel: GenerateRecepitRequestModel = new GenerateRecepitRequestModel();
     GenerateRecepitViewModel :GenerateRecepitViewModel =new GenerateRecepitViewModel();
     errorMessage: any;
+    today: any;
 
     
     ngOnInit(): void 
@@ -61,5 +62,8 @@ export class GenerateRecepitComponent implements OnInit {
         });
     }
 
+    onSubmit() {
+
+    }
 
 }

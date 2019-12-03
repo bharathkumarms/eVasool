@@ -51,7 +51,7 @@ import { AdminAuthGuardService } from './AuthGuard/AdminAuthGuardService';
 import { UserAuthGuardService } from './AuthGuard/UserAuthGuardService';
 import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Component';
 import { AttachmentComponent } from './attachment/attachment.component';
-
+import { AllMemberRegistration } from './MemberRegistration/app.AllMemberRegistration.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +92,8 @@ import { AttachmentComponent } from './attachment/attachment.component';
     MonthwiseReportComponent,
     RenewalReportComponent,
     GenerateRecepitComponent,
-    AttachmentComponent
+    AttachmentComponent,
+    AllMemberRegistration
   ],
   imports: [
     BrowserModule,
